@@ -1,25 +1,24 @@
 import React from "react";
 import { Card, CardBody, CardImg, CardImgOverlay, CardTitle } from "reactstrap";
 
-const MenuItem = (props) => {
-  // console.log(props.dish);
+const MenuItem = ({ dish, onDishSelect }) => {
   return (
     <div>
       <Card className="mt-3">
         <CardBody>
           <CardImg
             width="100%"
-            alt={props.dish.name}
-            src={props.dish.image}
+            alt={dish.name}
+            src={dish.image}
             style={{ opacity: "0.7" }}
-          ></CardImg>
+          />
           <CardImgOverlay>
             <CardTitle
               tag="h3"
-              onClick={props.onDishSelect}
+              onClick={onDishSelect}
               style={{ cursor: "pointer" }}
             >
-              {props.dish.name}
+              {dish.name}
             </CardTitle>
           </CardImgOverlay>
         </CardBody>
