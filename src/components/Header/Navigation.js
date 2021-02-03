@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import {
   Collapse,
   Nav,
@@ -10,12 +10,9 @@ import {
 } from "reactstrap";
 
 class Navigation extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isNavOpen: false,
-    };
-  }
+  state = {
+    isNavOpen: false,
+  };
 
   navToggle = () => {
     this.setState({
@@ -38,27 +35,27 @@ class Navigation extends Component {
             <Collapse isOpen={this.state.isNavOpen} navbar>
               <Nav className="ml-auto" navbar>
                 <NavItem>
-                  <Link to="/" className="nav-link active">
+                  <NavLink exact to="/" className="nav-link">
                     Home
-                  </Link>
+                  </NavLink>
                 </NavItem>
 
                 <NavItem>
-                  <Link to="/menu" className="nav-link">
+                  <NavLink to="/menu" className="nav-link">
                     Menu
-                  </Link>
+                  </NavLink>
                 </NavItem>
 
                 <NavItem>
-                  <Link to="/about" className="nav-link">
+                  <NavLink to="/about" className="nav-link">
                     About
-                  </Link>
+                  </NavLink>
                 </NavItem>
 
                 <NavItem>
-                  <Link to="/contact" className="nav-link">
+                  <NavLink to="/contact" className="nav-link">
                     Contact
-                  </Link>
+                  </NavLink>
                 </NavItem>
               </Nav>
             </Collapse>
