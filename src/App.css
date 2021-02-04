@@ -1,3 +1,15 @@
 .app {
   text-align: center;
 }
+
+footer {
+  background-color: rgba(0, 0, 0, 0.467);
+  margin: 0 auto;
+  padding-top: 10px;
+  width: 100%;
+}
+
+.row-content {
+  margin: 0 auto;
+  min-height: 400px;
+}
