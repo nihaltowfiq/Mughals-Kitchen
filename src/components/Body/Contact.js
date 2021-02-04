@@ -2,15 +2,27 @@ import React, { Component } from "react";
 import { Button, Col, Form, FormGroup, Input, Label } from "reactstrap";
 
 class Contact extends Component {
+  state = {
+    firstname: "",
+    lastname: "",
+    phone: "",
+    email: "",
+    agree: false,
+    contactType: "Phone",
+    message: "",
+  };
   render() {
     return (
       <div className="container">
-        <div className="row row-content mt-3">
+        <div
+          className="row row-content mt-3 text-left"
+          style={{ paddingLeft: "20px" }}
+        >
           <div className="col-12 my-2">
             <h3>Send us your Feedback.</h3>
           </div>
 
-          <div className="col-12 my-3">
+          <div className="col-12 col-md-7 my-3 ">
             <Form>
               <FormGroup row>
                 <Label md={2} htmlFor="firstname">
@@ -20,7 +32,7 @@ class Contact extends Component {
                   <Input
                     type="text"
                     name="firstname"
-                    value=""
+                    value={this.state.firstName}
                     placeholder="First Name"
                   />
                 </Col>
@@ -34,7 +46,7 @@ class Contact extends Component {
                   <Input
                     type="text"
                     name="lastname"
-                    value=""
+                    value={this.state.lastname}
                     placeholder="Last Name"
                   />
                 </Col>
@@ -48,7 +60,7 @@ class Contact extends Component {
                   <Input
                     type="tel"
                     name="phone"
-                    value=""
+                    value={this.state.phone}
                     placeholder="Phone Number"
                   />
                 </Col>
@@ -62,7 +74,7 @@ class Contact extends Component {
                   <Input
                     type="text"
                     name="email"
-                    value=""
+                    value={this.state.email}
                     placeholder="Email Address"
                   />
                 </Col>
@@ -72,14 +84,22 @@ class Contact extends Component {
                 <Col md={{ size: 4, offset: 5 }}>
                   <FormGroup check>
                     <Label check>
-                      <Input type="checkbox" name="agree" value="" />
+                      <Input
+                        type="checkbox"
+                        name="agree"
+                        value={this.state.agree}
+                      />
                       <strong>May we contact you?</strong>
                     </Label>
                   </FormGroup>
                 </Col>
 
                 <Col md={{ size: 3, offset: 0 }}>
-                  <Input type="select" name="contactType" value="">
+                  <Input
+                    type="select"
+                    name="contactType"
+                    value={this.state.contactType}
+                  >
                     <option>Phone</option>
                     <option>Email</option>
                   </Input>
@@ -94,7 +114,7 @@ class Contact extends Component {
                   <Input
                     type="textarea"
                     name="message"
-                    value=""
+                    value={this.state.message}
                     placeholder="Enter your feedback"
                     rows={8}
                   />
