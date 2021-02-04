@@ -28,7 +28,7 @@ class Navigation extends Component {
               href="/"
               style={{ fontFamily: "Kaushan Script", fontSize: "24px" }}
             >
-              Mughal Restaurant
+              Mughal's Kitchen
             </NavbarBrand>
 
             <NavbarToggler onClick={this.navToggle} />
