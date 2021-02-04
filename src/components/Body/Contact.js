@@ -2,15 +2,36 @@ import React, { Component } from "react";
 import { Button, Col, Form, FormGroup, Input, Label } from "reactstrap";
 
 class Contact extends Component {
-  state = {
-    firstname: "",
-    lastname: "",
-    phone: "",
-    email: "",
-    agree: false,
-    contactType: "Phone",
-    message: "",
+  constructor(props) {
+    super(props);
+    this.state = {
+      firstname: "",
+      lastname: "",
+      phone: "",
+      email: "",
+      agree: false,
+      contactType: "Phone",
+      message: "",
+    };
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleInputChange = (e) => {
+    const value =
+      e.target.type === "checkbox" ? e.target.checked : e.target.value;
+    const name = e.target.name;
+
+    this.setState({
+      [name]: value,
+    });
   };
+
+  handleSubmit = (e) => {
+    console.log(this.state);
+    e.preventDefault();
+  };
+
   render() {
     return (
       <div className="container">
@@ -23,7 +44,7 @@ class Contact extends Component {
           </div>
 
           <div className="col-12 col-md-7 my-3 ">
-            <Form>
+            <Form onSubmit={this.handleSubmit}>
               <FormGroup row>
                 <Label md={2} htmlFor="firstname">
                   Firstname:
@@ -34,6 +55,7 @@ class Contact extends Component {
                     name="firstname"
                     value={this.state.firstName}
                     placeholder="First Name"
+                    onChange={this.handleInputChange}
                   />
                 </Col>
               </FormGroup>
@@ -48,6 +70,7 @@ class Contact extends Component {
                     name="lastname"
                     value={this.state.lastname}
                     placeholder="Last Name"
+                    onChange={this.handleInputChange}
                   />
                 </Col>
               </FormGroup>
@@ -62,6 +85,7 @@ class Contact extends Component {
                     name="phone"
                     value={this.state.phone}
                     placeholder="Phone Number"
+                    onChange={this.handleInputChange}
                   />
                 </Col>
               </FormGroup>
@@ -76,6 +100,7 @@ class Contact extends Component {
                     name="email"
                     value={this.state.email}
                     placeholder="Email Address"
+                    onChange={this.handleInputChange}
                   />
                 </Col>
               </FormGroup>
@@ -88,6 +113,7 @@ class Contact extends Component {
                         type="checkbox"
                         name="agree"
                         value={this.state.agree}
+                        onChange={this.handleInputChange}
                       />
                       <strong>May we contact you?</strong>
                     </Label>
@@ -99,6 +125,7 @@ class Contact extends Component {
                     type="select"
                     name="contactType"
                     value={this.state.contactType}
+                    onChange={this.handleInputChange}
                   >
                     <option>Phone</option>
                     <option>Email</option>
@@ -115,6 +142,7 @@ class Contact extends Component {
                     type="textarea"
                     name="message"
                     value={this.state.message}
+                    onChange={this.handleInputChange}
                     placeholder="Enter your feedback"
                     rows={8}
                   />
