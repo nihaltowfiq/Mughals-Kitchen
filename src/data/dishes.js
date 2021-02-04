@@ -191,6 +191,102 @@ const DISHES = [
       },
     ],
   },
+  {
+    id: 4,
+    name: "Sandwich",
+    image: "assets/images/4sandwich.jpg",
+    category: "dessert",
+    label: "",
+    price: "120",
+    description:
+      "Sandwiches are packed full of flavor and perfect for brunches, parties, baby showers, bridal showers, picnics, and more.",
+    comments: [
+      {
+        id: 0,
+        rating: 5,
+        comment: "Imagine all the eatables, living in conFusion!",
+        author: "Shanto",
+        date: "2018-10-16T17:57:28.556094Z",
+      },
+      {
+        id: 1,
+        rating: 4,
+        comment:
+          "Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
+        author: "Karim",
+        date: "2017-09-05T17:57:28.556094Z",
+      },
+      {
+        id: 2,
+        rating: 3,
+        comment: "Eat it, just eat it!",
+        author: "Moinul",
+        date: "2019-02-13T17:57:28.556094Z",
+      },
+      {
+        id: 3,
+        rating: 4,
+        comment: "Ultimate, Reaching for the stars!",
+        author: "Rahat",
+        date: "2017-12-02T17:57:28.556094Z",
+      },
+      {
+        id: 4,
+        rating: 2,
+        comment: "It's your birthday, we're gonna party!",
+        author: "Rony",
+        date: "2019-12-02T17:57:28.556094Z",
+      },
+    ],
+  },
+  {
+    id: 4,
+    name: "Fried Chicken",
+    image: "assets/images/5chicken.jpg",
+    category: "dessert",
+    label: "",
+    price: "209",
+    description:
+      "Perfect Fried Chicken with the crispiest, most flavorful crunchy outside with moist and juicy meat on the inside.",
+    comments: [
+      {
+        id: 0,
+        rating: 5,
+        comment: "Imagine all the eatables, living in conFusion!",
+        author: "Shanto",
+        date: "2018-10-16T17:57:28.556094Z",
+      },
+      {
+        id: 1,
+        rating: 4,
+        comment:
+          "Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
+        author: "Karim",
+        date: "2017-09-05T17:57:28.556094Z",
+      },
+      {
+        id: 2,
+        rating: 3,
+        comment: "Eat it, just eat it!",
+        author: "Moinul",
+        date: "2019-02-13T17:57:28.556094Z",
+      },
+      {
+        id: 3,
+        rating: 4,
+        comment: "Ultimate, Reaching for the stars!",
+        author: "Rahat",
+        date: "2017-12-02T17:57:28.556094Z",
+      },
+      {
+        id: 4,
+        rating: 2,
+        comment: "It's your birthday, we're gonna party!",
+        author: "Rony",
+        date: "2019-12-02T17:57:28.556094Z",
+      },
+    ],
+  },
 ];
 
 export default DISHES;
