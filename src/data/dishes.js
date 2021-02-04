@@ -240,7 +240,7 @@ const DISHES = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     name: "Fried Chicken",
     image: "assets/images/5chicken.jpg",
     category: "dessert",
