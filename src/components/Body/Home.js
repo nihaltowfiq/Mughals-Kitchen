@@ -1,7 +1,16 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
+const mapStateToProps = (state) => {
+  console.log("mapStateToProps: ", state);
+  return {
+    dishes: state.dishes,
+  };
+};
 
 class Home extends Component {
   render() {
+    console.log(this.props);
     document.title = "Mughal's Kitchen - Home";
     return (
       <div>
@@ -11,4 +20,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default connect(mapStateToProps)(Home);
