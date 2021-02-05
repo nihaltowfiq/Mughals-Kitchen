@@ -3,7 +3,8 @@
 }
 
 footer {
-  background-color: rgba(0, 0, 0, 0.467);
+  background-color: #343a40;
+  color: whitesmoke;
   margin: 0 auto;
   padding-top: 10px;
   width: 100%;
