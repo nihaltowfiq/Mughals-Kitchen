@@ -6,10 +6,12 @@ const LoadComments = ({ comments }) => {
     return (
       <div key={comment.id}>
         <h6 className="mt-1">{comment.author}</h6>
-        <p className="mb-0">{comment.comment}</p>
+        <p className="my-0">{comment.comment}</p>
+        <p className="my-0">Rating: {comment.rating}</p>
         <small>
           {dateFormat(comment.date, "dddd, mmmm dS, yyyy, h:MM TT")}
         </small>
+        <hr />
       </div>
     );
   });

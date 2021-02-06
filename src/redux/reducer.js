@@ -8,10 +8,14 @@ const initialState = {
 };
 
 export const Reducer = (state = initialState, action) => {
-  if (action.type === "TEST") {
+  if (action.type === "ADD_COMMENT") {
+    let newComment = action.payload;
+    newComment.id = state.comments.length;
+    newComment.date = new Date().toDateString();
+    console.log(newComment);
     return {
       ...state,
-      sample: action.str,
+      comments: state.comments.concat(newComment),
     };
   }
   return state;
