@@ -11,6 +11,21 @@ const mapStateToProps = (state) => {
   };
 };
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addComment: (dishId, author, rating, comment) =>
+      dispatch({
+        type: "ADD_COMMENT",
+        payload: {
+          dishId: dishId,
+          author: author,
+          rating: rating,
+          comment: comment,
+        },
+      }),
+  };
+};
+
 class Menu extends Component {
   state = {
     selectedDish: null,
@@ -45,7 +60,11 @@ class Menu extends Component {
         (comment) => comment.dishId === this.state.selectedDish.id
       );
       dishDetail = (
-        <DishDetail comments={comments} dish={this.state.selectedDish} />
+        <DishDetail
+          comments={comments}
+          dish={this.state.selectedDish}
+          addComment={this.props.addComment}
+        />
       );
     }
     return (
@@ -69,4 +88,4 @@ class Menu extends Component {
   }
 }
 
-export default connect(mapStateToProps)(Menu);
+export default connect(mapStateToProps, mapDispatchToProps)(Menu);
