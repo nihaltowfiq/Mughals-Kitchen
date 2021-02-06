@@ -8,7 +8,6 @@ const initialState = {
 };
 
 export const Reducer = (state = initialState, action) => {
-  console.log(action.type);
   if (action.type === "TEST") {
     return {
       ...state,

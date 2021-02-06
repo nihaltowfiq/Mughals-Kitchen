@@ -5,7 +5,6 @@ import MenuItem from "./MenuItem";
 import { connect } from "react-redux";
 
 const mapStateToProps = (state) => {
-  console.log("mapStateToProps: ", state);
   return {
     dishes: state.dishes,
     comments: state.comments,
