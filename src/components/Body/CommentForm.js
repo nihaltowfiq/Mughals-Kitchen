@@ -19,15 +19,13 @@ class CommentForm extends Component {
     });
   };
   handleSubmit = (e) => {
-    this.props.dispatch({
-      type: "ADD_COMMENT",
-      payload: {
-        dishId: this.props.dishId,
-        author: this.state.author,
-        rating: this.state.rating,
-        comment: this.state.comment,
-      },
-    });
+    const dishId = this.props.dishId;
+    const author = this.state.author;
+    const rating = this.state.rating;
+    const comment = this.state.comment;
+
+    this.props.addComment(dishId, author, rating, comment);
+
     e.preventDefault();
     this.setState({
       author: "",
@@ -78,4 +76,19 @@ class CommentForm extends Component {
   }
 }
 
-export default connect()(CommentForm);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addComment: (dishId, author, rating, comment) =>
+      dispatch({
+        type: "ADD_COMMENT",
+        payload: {
+          dishId: dishId,
+          author: author,
+          rating: rating,
+          comment: comment,
+        },
+      }),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(CommentForm);
