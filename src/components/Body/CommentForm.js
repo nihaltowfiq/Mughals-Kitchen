@@ -68,7 +68,9 @@ class CommentForm extends Component {
             required
           />
           <br />
-          <Button type="submit">Comment</Button>
+          <Button color="primary" type="submit">
+            Comment
+          </Button>
         </Form>
       </div>
     );
