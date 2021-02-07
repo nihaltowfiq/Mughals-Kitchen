@@ -35,12 +35,9 @@ class Contact extends Component {
   render() {
     document.title = "Contact";
     return (
-      <div className="container">
-        <div
-          className="row row-content mt-3 text-left"
-          style={{ paddingLeft: "20px" }}
-        >
-          <div className="col-12 my-2">
+      <div className="container ">
+        <div className="row row-content d-md-flex justify-content-md-center pl-md-2 mt-3 text-left ">
+          <div className="col-12 my-2 ">
             <h3>Send us your Feedback.</h3>
           </div>
 
