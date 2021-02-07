@@ -28,6 +28,6 @@ export const fetchDishes = () => {
   return (dispatch) => {
     dispatch(dishesLoading());
 
-    setTimeout(() => dispatch(loadDishes(DISHES)), 2000);
+    setTimeout(() => dispatch(loadDishes(DISHES)), 1000);
   };
 };

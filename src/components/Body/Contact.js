@@ -1,35 +1,11 @@
+/* eslint-disable react/jsx-pascal-case */
 import React, { Component } from "react";
-import { Button, Col, Form, FormGroup, Input, Label } from "reactstrap";
+import { Control, LocalForm } from "react-redux-form";
+import { Button, Col, FormGroup, Label } from "reactstrap";
 
 class Contact extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      firstname: "",
-      lastname: "",
-      phone: "",
-      email: "",
-      agree: false,
-      contactType: "Phone",
-      message: "",
-    };
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleInputChange = (e) => {
-    const value =
-      e.target.type === "checkbox" ? e.target.checked : e.target.value;
-    const name = e.target.name;
-
-    this.setState({
-      [name]: value,
-    });
-  };
-
-  handleSubmit = (e) => {
-    console.log(this.state);
-    e.preventDefault();
+  handleSubmit = (values) => {
+    console.log(values);
   };
 
   render() {
@@ -42,18 +18,17 @@ class Contact extends Component {
           </div>
 
           <div className="col-12 col-md-7 my-3 ">
-            <Form onSubmit={this.handleSubmit}>
+            <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
               <FormGroup row>
                 <Label md={2} htmlFor="firstname">
                   Firstname:
                 </Label>
                 <Col md={10}>
-                  <Input
-                    type="text"
+                  <Control.text
+                    model=".firstname"
                     name="firstname"
-                    value={this.state.firstName}
                     placeholder="First Name"
-                    onChange={this.handleInputChange}
+                    className="form-control"
                   />
                 </Col>
               </FormGroup>
@@ -63,12 +38,11 @@ class Contact extends Component {
                   Lastname:
                 </Label>
                 <Col md={10}>
-                  <Input
-                    type="text"
+                  <Control.text
+                    model=".lastname"
                     name="lastname"
-                    value={this.state.lastname}
                     placeholder="Last Name"
-                    onChange={this.handleInputChange}
+                    className="form-control"
                   />
                 </Col>
               </FormGroup>
@@ -78,12 +52,11 @@ class Contact extends Component {
                   Phone No:
                 </Label>
                 <Col md={10}>
-                  <Input
-                    type="tel"
+                  <Control.text
+                    model=".phone"
                     name="phone"
-                    value={this.state.phone}
                     placeholder="Phone Number"
-                    onChange={this.handleInputChange}
+                    className="form-control"
                   />
                 </Col>
               </FormGroup>
@@ -93,12 +66,11 @@ class Contact extends Component {
                   Email:
                 </Label>
                 <Col md={10}>
-                  <Input
-                    type="text"
+                  <Control.text
+                    model=".email"
                     name="email"
-                    value={this.state.email}
                     placeholder="Email Address"
-                    onChange={this.handleInputChange}
+                    className="form-control"
                   />
                 </Col>
               </FormGroup>
@@ -107,11 +79,10 @@ class Contact extends Component {
                 <Col md={{ size: 4, offset: 5 }}>
                   <FormGroup check>
                     <Label check>
-                      <Input
-                        type="checkbox"
+                      <Control.checkbox
+                        model=".agree"
                         name="agree"
-                        value={this.state.agree}
-                        onChange={this.handleInputChange}
+                        className="form-check-input"
                       />
                       <strong>May we contact you?</strong>
                     </Label>
@@ -119,15 +90,14 @@ class Contact extends Component {
                 </Col>
 
                 <Col md={{ size: 3, offset: 0 }}>
-                  <Input
-                    type="select"
+                  <Control.select
+                    model=".contactType"
                     name="contactType"
-                    value={this.state.contactType}
-                    onChange={this.handleInputChange}
+                    className="form-control"
                   >
                     <option>Phone</option>
                     <option>Email</option>
-                  </Input>
+                  </Control.select>
                 </Col>
               </FormGroup>
 
@@ -136,13 +106,12 @@ class Contact extends Component {
                   Your Feedback:
                 </Label>
                 <Col md={10}>
-                  <Input
-                    type="textarea"
+                  <Control.textarea
+                    model=".message"
                     name="message"
-                    value={this.state.message}
-                    onChange={this.handleInputChange}
                     placeholder="Enter your feedback"
                     rows={8}
+                    className="form-control"
                   />
                 </Col>
               </FormGroup>
@@ -154,7 +123,7 @@ class Contact extends Component {
                   </Button>
                 </Col>
               </FormGroup>
-            </Form>
+            </LocalForm>
           </div>
         </div>
       </div>
