@@ -13,7 +13,10 @@ const DishDetail = (props) => {
           <CardText>{props.dish.description}</CardText>
           <CardText>Price: {props.dish.price}/-</CardText>
           <hr />
-          <LoadComments comments={props.comments} />
+          <LoadComments
+            commentsIsLoading={props.commentsIsLoading}
+            comments={props.comments}
+          />
           <hr />
           <CommentForm dishId={props.dish.id} addComment={props.addComment} />
         </CardBody>

@@ -1,6 +1,11 @@
-import COMMENTS from "../data/comments";
 import { combineReducers } from "redux";
-import { ADD_COMMENT, DISHES_LOADING, LOAD_DISHES } from "./actionTypes";
+import {
+  ADD_COMMENT,
+  COMMENTS_LOADING,
+  DISHES_LOADING,
+  LOAD_COMMENTS,
+  LOAD_DISHES,
+} from "./actionTypes";
 import { createForms } from "react-redux-form";
 import { initialContactForm } from "./forms";
 
@@ -23,8 +28,23 @@ const dishReducer = (dishState = { isLoading: false, dishes: [] }, action) => {
   }
 };
 
-const commentReducer = (commentState = COMMENTS, action) => {
+const commentReducer = (
+  commentState = { isLoading: false, comments: [] },
+  action
+) => {
   switch (action.type) {
+    case COMMENTS_LOADING:
+      return {
+        ...commentState,
+        isLoading: true,
+        comments: [],
+      };
+    case LOAD_COMMENTS:
+      return {
+        ...commentState,
+        isLoading: false,
+        comments: action.payload,
+      };
     case ADD_COMMENT:
       let newComment = action.payload;
       newComment.id = commentState.length;

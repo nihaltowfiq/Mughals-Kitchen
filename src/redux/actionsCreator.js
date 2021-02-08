@@ -1,5 +1,11 @@
 import axios from "axios";
-import { ADD_COMMENT, DISHES_LOADING, LOAD_DISHES } from "./actionTypes";
+import {
+  ADD_COMMENT,
+  COMMENTS_LOADING,
+  DISHES_LOADING,
+  LOAD_COMMENTS,
+  LOAD_DISHES,
+} from "./actionTypes";
 import { baseURL } from "./baseURL";
 
 export const addComment = (dishId, author, rating, comment) => {
@@ -33,5 +39,24 @@ export const fetchDishes = () => {
       .get(`${baseURL}/dishes`)
       .then((res) => res.data)
       .then((dishes) => dispatch(loadDishes(dishes)));
+  };
+};
+
+export const commentsLoading = () => {
+  return { type: COMMENTS_LOADING };
+};
+
+export const loadComments = (comments) => {
+  return { type: LOAD_COMMENTS, payload: comments };
+};
+
+export const fetchComments = () => {
+  return (dispatch) => {
+    dispatch(commentsLoading());
+
+    axios
+      .get(`${baseURL}/comments`)
+      .then((res) => res.data)
+      .then((comments) => dispatch(loadComments(comments)));
   };
 };
