@@ -4,6 +4,7 @@ import { Control, Errors, LocalForm } from "react-redux-form";
 import { Button, Col, FormGroup, Label } from "reactstrap";
 
 const required = (val) => val && val.length;
+const isAlphabet = (val) => !/[^a-zA-Z]/.test(val);
 const isNumber = (val) => !isNaN(Number(val));
 const validEmail = (val) =>
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/i.test(
@@ -36,13 +37,16 @@ class Contact extends Component {
                     name="firstname"
                     placeholder="First Name"
                     className="form-control"
-                    validators={{ required }}
+                    validators={{ required, isAlphabet }}
                   />
                   <Errors
                     className="text-danger"
                     model=".firstname"
                     show="touched"
-                    messages={{ required: "Required" }}
+                    messages={{
+                      required: "Required",
+                      isAlphabet: "Type Alphabet",
+                    }}
                   />
                 </Col>
               </FormGroup>
@@ -57,13 +61,16 @@ class Contact extends Component {
                     name="lastname"
                     placeholder="Last Name"
                     className="form-control"
-                    validators={{ required }}
+                    validators={{ required, isAlphabet }}
                   />
                   <Errors
                     className="text-danger"
                     model=".lastname"
                     show="touched"
-                    messages={{ required: "Required" }}
+                    messages={{
+                      required: "Required",
+                      isAlphabet: "Type Alphabet",
+                    }}
                   />
                 </Col>
               </FormGroup>
