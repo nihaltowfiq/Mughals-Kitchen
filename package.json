@@ -9,6 +9,7 @@
     "bootstrap": "^4.6.0",
     "dateformat": "^4.5.0",
     "font-awesome": "^4.7.0",
+    "json-server": "^0.16.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-popper": "^2.2.4",
@@ -26,7 +27,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "server": "json-server db.json --watch -p 5000"
   },
   "eslintConfig": {
     "extends": [
