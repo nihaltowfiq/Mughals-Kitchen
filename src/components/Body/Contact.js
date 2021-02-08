@@ -1,7 +1,16 @@
 /* eslint-disable react/jsx-pascal-case */
 import React, { Component } from "react";
-import { Control, Errors, LocalForm } from "react-redux-form";
+import { connect } from "react-redux";
+import { actions, Control, Errors, Form, LocalForm } from "react-redux-form";
 import { Button, Col, FormGroup, Label } from "reactstrap";
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    resetFeedbackForm: () => {
+      dispatch(actions.reset("feedback"));
+    },
+  };
+};
 
 const required = (val) => val && val.length;
 const isAlphabet = (val) => !/[^a-zA-Z]/.test(val);
@@ -14,6 +23,7 @@ const validEmail = (val) =>
 class Contact extends Component {
   handleSubmit = (values) => {
     console.log(values);
+    this.props.resetFeedbackForm();
   };
 
   render() {
@@ -26,7 +36,10 @@ class Contact extends Component {
           </div>
 
           <div className="col-12 col-md-7 my-3 ">
-            <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
+            <Form
+              model="feedback"
+              onSubmit={(values) => this.handleSubmit(values)}
+            >
               <FormGroup row>
                 <Label md={2} htmlFor="firstname">
                   Firstname:
@@ -178,7 +191,7 @@ class Contact extends Component {
                   </Button>
                 </Col>
               </FormGroup>
-            </LocalForm>
+            </Form>
           </div>
         </div>
       </div>
@@ -186,4 +199,4 @@ class Contact extends Component {
   }
 }
 
-export default Contact;
+export default connect(null, mapDispatchToProps)(Contact);
