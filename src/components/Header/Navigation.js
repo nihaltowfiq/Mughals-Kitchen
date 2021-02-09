@@ -47,8 +47,8 @@ class Navigation extends Component {
                 </NavItem>
 
                 <NavItem>
-                  <NavLink to="/about" className="nav-link">
-                    About
+                  <NavLink to="/feedback" className="nav-link">
+                    Feedback
                   </NavLink>
                 </NavItem>
 
