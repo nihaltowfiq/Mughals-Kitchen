@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-pascal-case */
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { actions, Control, Errors, Form, LocalForm } from "react-redux-form";
+import { actions, Control, Errors, Form } from "react-redux-form";
 import { Button, Col, FormGroup, Label } from "reactstrap";
 
 const mapDispatchToProps = (dispatch) => {
