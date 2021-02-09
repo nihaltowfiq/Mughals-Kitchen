@@ -6,6 +6,7 @@ import {
   FAILED_DISHES,
   LOAD_COMMENTS,
   LOAD_DISHES,
+  LOAD_FEEDBACKS,
 } from "./actionTypes";
 import { baseURL } from "./baseURL";
 
@@ -75,5 +76,18 @@ export const fetchComments = () => {
       .get(`${baseURL}/comments`)
       .then((res) => res.data)
       .then((comments) => dispatch(loadComments(comments)));
+  };
+};
+
+const loadFeedbacks = (feedbacks) => {
+  return { type: LOAD_FEEDBACKS, payload: feedbacks };
+};
+
+export const fetchFeedbacks = () => {
+  return (dispatch) => {
+    axios
+      .get(`${baseURL}/feedbacks`)
+      .then((res) => res.data)
+      .then((feedbacks) => dispatch(loadFeedbacks(feedbacks)));
   };
 };

@@ -337,24 +337,44 @@
   ],
   "feedbacks": [
     {
-      "firstname": "Kazi",
-      "lastname": "Towfiq",
-      "phone": "01790831130",
-      "email": "nihaltowfiq@gmail.com",
+      "firstname": "Jeff",
+      "lastname": "Bezos",
+      "phone": "123456789",
+      "email": "jeff.bezos@amazon.com",
       "agree": true,
       "contactType": "Email",
-      "message": "This service is awesome!!",
+      "message": "The food was fresh, properly prepared and a great value for the price. We highly recommend it. The breakfast buffet on Sunday was equally as good!",
       "id": 1
     },
     {
       "firstname": "Bill",
       "lastname": "Gates",
       "phone": "123456789",
-      "email": "bill.gates@hotmail.com",
+      "email": "bill.gates@microsoft.com",
       "agree": false,
       "contactType": "Email",
-      "message": "Looks Good. Foods are also delicious!",
+      "message": "I had lunch with some of my colleagues at Echo on Day 1. I had the wedge salad - it was delicious. On Night 2, I enjoyed a drink at the bar. I had a Margarita. The service was excellent!",
       "id": 2
+    },
+    {
+      "firstname": "Steve",
+      "lastname": "Jobs",
+      "phone": "123456789",
+      "email": "steve.jobs@apple.com",
+      "agree": true,
+      "contactType": "Email",
+      "message": "Had dinner with girl friends. Menu is perfect, something for everyone. Service was awesome and Jason was very accommodating. Will be back definitely!",
+      "id": 3
+    },
+    {
+      "firstname": "Mark",
+      "lastname": "Zuckerberg",
+      "phone": "123456789",
+      "email": "zuckerberg@facebook.com",
+      "agree": false,
+      "contactType": "Phone",
+      "message": "All the good reviews that I have read about this property are true. The friendliness of the staff seems genuine. I have never seen such good customer service as I experienced poolside.",
+      "id": 4
     }
   ]
 }

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Alert, CardColumns } from "reactstrap";
 import { fetchDishes } from "../../redux/actionsCreator";
 import Loading from "./Loading";
+
 class Home extends Component {
   componentDidMount() {
     this.props.fetchDishes();

@@ -6,6 +6,7 @@ import {
   FAILED_DISHES,
   LOAD_COMMENTS,
   LOAD_DISHES,
+  LOAD_FEEDBACKS,
 } from "./actionTypes";
 import { createForms } from "react-redux-form";
 import { initialContactForm } from "./forms";
@@ -69,8 +70,22 @@ const commentReducer = (
   }
 };
 
+const initialFeedback = {
+  feedbacks: [],
+};
+
+const feedbackReducer = (feedbackState = initialFeedback, action) => {
+  switch (action.type) {
+    case LOAD_FEEDBACKS:
+      return { ...feedbackState, feedbacks: action.payload };
+    default:
+      return feedbackState;
+  }
+};
+
 export const Reducer = combineReducers({
   dishes: dishReducer,
   comments: commentReducer,
+  feedbacks: feedbackReducer,
   ...createForms({ feedback: initialContactForm }),
 });
