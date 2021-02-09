@@ -41,14 +41,19 @@ class Contact extends Component {
             alertMsg: "Successfully Submitted",
             alertType: "success",
           });
-        } else {
-          this.setState({
-            showAlert: true,
-            alertMsg: "Submit Failed",
-            alertType: "danger",
-          });
         }
-
+        setTimeout(() => {
+          this.setState({
+            showAlert: false,
+          });
+        }, 2000);
+      })
+      .catch((error) => {
+        this.setState({
+          showAlert: true,
+          alertMsg: error.message,
+          alertType: "danger",
+        });
         setTimeout(() => {
           this.setState({
             showAlert: false,
@@ -68,7 +73,11 @@ class Contact extends Component {
           </div>
 
           <div className="col-12 col-md-7 my-3 ">
-            <Alert isOpen={this.state.showAlert} color={this.state.alertType}>
+            <Alert
+              className="text-center"
+              isOpen={this.state.showAlert}
+              color={this.state.alertType}
+            >
               {this.state.alertMsg}
             </Alert>
             <Form

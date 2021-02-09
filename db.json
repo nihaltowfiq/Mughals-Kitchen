@@ -327,48 +327,18 @@
       "email": "nihaltowfiq@gmail.com",
       "agree": true,
       "contactType": "Email",
-      "message": "sdgaasdg",
+      "message": "This service is awesome!!",
       "id": 1
     },
     {
-      "firstname": "Nirob",
-      "lastname": "Kazi",
-      "phone": "25623",
-      "email": "nihaltowfiq@gmail.com",
-      "agree": true,
-      "contactType": "Phone",
-      "message": "sdgsadasha",
+      "firstname": "Bill",
+      "lastname": "Gates",
+      "phone": "123456789",
+      "email": "bill.gates@hotmail.com",
+      "agree": false,
+      "contactType": "Email",
+      "message": "Looks Good. Foods are also delicious!",
       "id": 2
-    },
-    {
-      "firstname": "Kazi",
-      "lastname": "Towfiq",
-      "phone": "01790831130",
-      "email": "nihaltowfiq@gmail.com",
-      "agree": true,
-      "contactType": "Email",
-      "message": "sadgsdag",
-      "id": 3
-    },
-    {
-      "firstname": "Kazi",
-      "lastname": "Towfiq",
-      "phone": "01790831130",
-      "email": "nihaltowfiq@gmail.com",
-      "agree": true,
-      "contactType": "Email",
-      "message": "sadgsdag",
-      "id": 4
-    },
-    {
-      "firstname": "Kazi",
-      "lastname": "Towfiq",
-      "phone": "01790831130",
-      "email": "nihaltowfiq@gmail.com",
-      "agree": true,
-      "contactType": "Email",
-      "message": "sdagsdag",
-      "id": 5
     }
   ]
 }
