@@ -9,14 +9,25 @@ import {
 import { baseURL } from "./baseURL";
 
 export const addComment = (dishId, author, rating, comment) => {
-  return {
-    type: ADD_COMMENT,
-    payload: {
+  return (dispatch) => {
+    const newCommnet = {
       dishId: dishId,
       author: author,
       rating: rating,
       comment: comment,
-    },
+    };
+    newCommnet.date = new Date().toISOString();
+    axios
+      .post(`${baseURL}/comments`, newCommnet)
+      .then((res) => res.data)
+      .then((comment) => dispatch(commentConcat(comment)));
+  };
+};
+
+export const commentConcat = (comment) => {
+  return {
+    type: ADD_COMMENT,
+    payload: comment,
   };
 };
 

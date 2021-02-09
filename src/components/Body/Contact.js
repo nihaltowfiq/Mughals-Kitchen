@@ -1,8 +1,10 @@
 /* eslint-disable react/jsx-pascal-case */
+import axios from "axios";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { actions, Control, Errors, Form } from "react-redux-form";
-import { Button, Col, FormGroup, Label } from "reactstrap";
+import { Alert, Button, Col, FormGroup, Label } from "reactstrap";
+import { baseURL } from "../../redux/baseURL";
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -21,8 +23,38 @@ const validEmail = (val) =>
   );
 
 class Contact extends Component {
+  state = {
+    showAlert: false,
+    alertMsg: null,
+    alertType: null,
+  };
+
   handleSubmit = (values) => {
     console.log(values);
+    axios
+      .post(`${baseURL}/feedbacks`, values)
+      .then((res) => res.status)
+      .then((status) => {
+        if (status === 201) {
+          this.setState({
+            showAlert: true,
+            alertMsg: "Successfully Submitted",
+            alertType: "success",
+          });
+        } else {
+          this.setState({
+            showAlert: true,
+            alertMsg: "Submit Failed",
+            alertType: "danger",
+          });
+        }
+
+        setTimeout(() => {
+          this.setState({
+            showAlert: false,
+          });
+        }, 2000);
+      });
     this.props.resetFeedbackForm();
   };
 
@@ -31,11 +63,14 @@ class Contact extends Component {
     return (
       <div className="container ">
         <div className="row row-content d-md-flex justify-content-md-center pl-md-2 mt-3 text-left ">
-          <div className="col-12 my-2 ">
+          <div className="col-12 my-2 text-center">
             <h3>Send us your Feedback.</h3>
           </div>
 
           <div className="col-12 col-md-7 my-3 ">
+            <Alert isOpen={this.state.showAlert} color={this.state.alertType}>
+              {this.state.alertMsg}
+            </Alert>
             <Form
               model="feedback"
               onSubmit={(values) => this.handleSubmit(values)}
