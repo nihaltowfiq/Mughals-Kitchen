@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { CardColumns } from "reactstrap";
+import { Alert, CardColumns } from "reactstrap";
 import { fetchDishes } from "../../redux/actionsCreator";
 import Loading from "./Loading";
 class Home extends Component {
@@ -12,6 +12,12 @@ class Home extends Component {
     document.title = "Mughal's Kitchen - Home";
     if (this.props.dishes.isLoading) {
       return <Loading />;
+    } else if (this.props.dishes.errMsg != null) {
+      return (
+        <Alert color="danger" className="mt-4 text-center">
+          {this.props.dishes.errMsg}
+        </Alert>
+      );
     } else {
       const homeDishes = this.props.dishes.dishes.map((dish) => {
         return (

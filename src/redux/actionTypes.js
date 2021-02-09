@@ -4,6 +4,8 @@ export const LOAD_DISHES = "LOAD_DISHES";
 
 export const DISHES_LOADING = "DISHES_LOADING";
 
+export const FAILED_DISHES = "FAILED_DISHES";
+
 export const LOAD_COMMENTS = "LOAD_COMMENTS";
 
 export const COMMENTS_LOADING = "COMMENTS_LOADING";

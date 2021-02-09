@@ -3,6 +3,7 @@ import {
   ADD_COMMENT,
   COMMENTS_LOADING,
   DISHES_LOADING,
+  FAILED_DISHES,
   LOAD_COMMENTS,
   LOAD_DISHES,
 } from "./actionTypes";
@@ -24,22 +25,26 @@ export const addComment = (dishId, author, rating, comment) => {
   };
 };
 
-export const commentConcat = (comment) => {
+const commentConcat = (comment) => {
   return {
     type: ADD_COMMENT,
     payload: comment,
   };
 };
 
-export const loadDishes = (dishes) => {
+const loadDishes = (dishes) => {
   return {
     type: LOAD_DISHES,
     payload: dishes,
   };
 };
 
-export const dishesLoading = () => {
+const dishesLoading = () => {
   return { type: DISHES_LOADING };
+};
+
+const failedDishes = (errorMsg) => {
+  return { type: FAILED_DISHES, payload: errorMsg };
 };
 
 export const fetchDishes = () => {
@@ -49,15 +54,16 @@ export const fetchDishes = () => {
     axios
       .get(`${baseURL}/dishes`)
       .then((res) => res.data)
-      .then((dishes) => dispatch(loadDishes(dishes)));
+      .then((dishes) => dispatch(loadDishes(dishes)))
+      .catch((err) => dispatch(failedDishes(err.message)));
   };
 };
 
-export const commentsLoading = () => {
+const commentsLoading = () => {
   return { type: COMMENTS_LOADING };
 };
 
-export const loadComments = (comments) => {
+const loadComments = (comments) => {
   return { type: LOAD_COMMENTS, payload: comments };
 };
 

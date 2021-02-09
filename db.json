@@ -317,6 +317,22 @@
       "comment": "Not Bad!\n",
       "date": "2021-02-09T08:39:41.922Z",
       "id": 31
+    },
+    {
+      "dishId": 5,
+      "author": "Nihal",
+      "rating": "4",
+      "comment": "SO Cripspy",
+      "date": "2021-02-09T09:23:52.436Z",
+      "id": 32
+    },
+    {
+      "dishId": 0,
+      "author": "Towfiq",
+      "rating": "3",
+      "comment": "Good!",
+      "date": "2021-02-09T09:25:40.133Z",
+      "id": 33
     }
   ],
   "feedbacks": [

@@ -3,25 +3,38 @@ import {
   ADD_COMMENT,
   COMMENTS_LOADING,
   DISHES_LOADING,
+  FAILED_DISHES,
   LOAD_COMMENTS,
   LOAD_DISHES,
 } from "./actionTypes";
 import { createForms } from "react-redux-form";
 import { initialContactForm } from "./forms";
 
-const dishReducer = (dishState = { isLoading: false, dishes: [] }, action) => {
+const dishReducer = (
+  dishState = { isLoading: false, dishes: [], errMsg: null },
+  action
+) => {
   switch (action.type) {
     case DISHES_LOADING:
       return {
         ...dishState,
         isLoading: true,
         dishes: [],
+        errMsg: null,
       };
     case LOAD_DISHES:
       return {
         ...dishState,
         isLoading: false,
         dishes: action.payload,
+        errMsg: null,
+      };
+    case FAILED_DISHES:
+      return {
+        ...dishState,
+        isLoading: false,
+        dishes: [],
+        errMsg: action.payload,
       };
     default:
       return dishState;

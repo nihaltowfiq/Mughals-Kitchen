@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { Button, CardColumns, Modal, ModalBody, ModalFooter } from "reactstrap";
+import {
+  Alert,
+  Button,
+  CardColumns,
+  Modal,
+  ModalBody,
+  ModalFooter,
+} from "reactstrap";
 import DishDetail from "./DishDetail";
 import MenuItem from "./MenuItem";
 import { connect } from "react-redux";
@@ -57,6 +64,12 @@ class Menu extends Component {
     document.title = "Menu";
     if (this.props.dishes.isLoading) {
       return <Loading />;
+    } else if (this.props.dishes.errMsg != null) {
+      return (
+        <Alert className="mt-4 text-center" color="danger">
+          {this.props.dishes.errMsg}
+        </Alert>
+      );
     } else {
       const menu = this.props.dishes.dishes.map((item) => {
         return (
