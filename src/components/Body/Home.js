@@ -1,15 +1,38 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { CardColumns } from "reactstrap";
+import { fetchDishes } from "../../redux/actionsCreator";
 import Loading from "./Loading";
 class Home extends Component {
+  componentDidMount() {
+    this.props.fetchDishes();
+  }
   render() {
+    // console.log(this.props.dishes.dishes);
     document.title = "Mughal's Kitchen - Home";
-    return (
-      <div>
-        <h1>This is HOME</h1>
-        <Loading />
-      </div>
-    );
+    if (this.props.dishes.isLoading) {
+      return <Loading />;
+    } else {
+      const homeDishes = this.props.dishes.dishes.map((dish) => {
+        return (
+          <div key={dish.id}>
+            <img src={dish.image} alt="dish" className="img-fluid" />
+            <h3>{dish.name}</h3>
+          </div>
+        );
+      });
+
+      return <CardColumns className="mt-2">{homeDishes}</CardColumns>;
+    }
   }
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+  return { dishes: state.dishes };
+};
+
+const mapDispatchToProps = {
+  fetchDishes: fetchDishes,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
