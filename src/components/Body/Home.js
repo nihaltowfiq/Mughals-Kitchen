@@ -22,7 +22,14 @@ class Home extends Component {
         );
       });
 
-      return <CardColumns className="mt-2">{homeDishes}</CardColumns>;
+      return (
+        <div>
+          <h3 className="text-info font-weight-bold">
+            To Order Food go to Menu!
+          </h3>
+          <CardColumns>{homeDishes}</CardColumns>
+        </div>
+      );
     }
   }
 }
