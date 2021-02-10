@@ -8,7 +8,6 @@ class Feedback extends Component {
     this.props.fetchFeedbacks();
   }
   render() {
-    console.log(this.props.feedbacks.feedbacks);
     document.title = "Feedback";
     const feedback = this.props.feedbacks.feedbacks.map((item) => {
       return (
@@ -38,8 +37,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = {
-  fetchFeedbacks: fetchFeedbacks,
-};
+const mapDispatchToProps = { fetchFeedbacks };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Feedback);

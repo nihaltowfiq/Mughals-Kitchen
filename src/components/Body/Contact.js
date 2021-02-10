@@ -6,14 +6,6 @@ import { actions, Control, Errors, Form } from "react-redux-form";
 import { Alert, Button, Col, FormGroup, Label } from "reactstrap";
 import { baseURL } from "../../redux/baseURL";
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    resetFeedbackForm: () => {
-      dispatch(actions.reset("feedback"));
-    },
-  };
-};
-
 const required = (val) => val && val.length;
 const isAlphabet = (val) => !/[^a-zA-Z]/.test(val);
 const isNumber = (val) => !isNaN(Number(val));
@@ -30,7 +22,6 @@ class Contact extends Component {
   };
 
   handleSubmit = (values) => {
-    console.log(values);
     axios
       .post(`${baseURL}/feedbacks`, values)
       .then((res) => res.status)
@@ -242,5 +233,19 @@ class Contact extends Component {
     );
   }
 }
+
+// Function form of mapDispatchToProps!!
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     resetFeedbackForm: () => {
+//       dispatch(actions.reset("feedback"));
+//     },
+//   };
+// };
+
+// Object shorthand form of mapDispatchToProps!!
+const mapDispatchToProps = {
+  resetFeedbackForm: () => actions.reset("feedback"),
+};
 
 export default connect(null, mapDispatchToProps)(Contact);

@@ -17,28 +17,6 @@ import {
 } from "../../redux/actionsCreator";
 import Loading from "./Loading";
 
-const mapStateToProps = (state) => {
-  return {
-    dishes: state.dishes,
-    comments: state.comments,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addComment: (dishId, author, rating, comment) =>
-      dispatch(addComment(dishId, author, rating, comment)),
-    fetchDishes: () => dispatch(fetchDishes()),
-    fetchComments: () => dispatch(fetchComments()),
-  };
-};
-
-// const mapDispatchToProps = {
-//   addComment: addComment,
-//   fetchDishes: fetchDishes,
-//   fetchComments: fetchComments,
-// };
-
 class Menu extends Component {
   state = {
     selectedDish: null,
@@ -116,5 +94,25 @@ class Menu extends Component {
     }
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    dishes: state.dishes,
+    comments: state.comments,
+  };
+};
+
+// Function form of mapDispatchToProps!!
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     addComment: (dishId, author, rating, comment) =>
+//       dispatch(addComment(dishId, author, rating, comment)),
+//     fetchDishes: () => dispatch(fetchDishes()),
+//     fetchComments: () => dispatch(fetchComments()),
+//   };
+// };
+
+// Object shorthand form of mapDispatchToProps!!
+const mapDispatchToProps = { addComment, fetchDishes, fetchComments };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Menu);

@@ -9,7 +9,6 @@ class Home extends Component {
     this.props.fetchDishes();
   }
   render() {
-    // console.log(this.props.dishes.dishes);
     document.title = "Mughal's Kitchen - Home";
     if (this.props.dishes.isLoading) {
       return <Loading />;
@@ -45,8 +44,6 @@ const mapStateToProps = (state) => {
   return { dishes: state.dishes };
 };
 
-const mapDispatchToProps = {
-  fetchDishes: fetchDishes,
-};
+const mapDispatchToProps = { fetchDishes };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

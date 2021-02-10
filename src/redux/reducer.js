@@ -70,11 +70,7 @@ const commentReducer = (
   }
 };
 
-const initialFeedback = {
-  feedbacks: [],
-};
-
-const feedbackReducer = (feedbackState = initialFeedback, action) => {
+const feedbackReducer = (feedbackState = { feedbacks: [] }, action) => {
   switch (action.type) {
     case LOAD_FEEDBACKS:
       return { ...feedbackState, feedbacks: action.payload };

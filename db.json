@@ -333,6 +333,22 @@
       "comment": "Good!",
       "date": "2021-02-09T09:25:40.133Z",
       "id": 33
+    },
+    {
+      "dishId": 3,
+      "author": "Nihal",
+      "rating": "3",
+      "comment": "Nice",
+      "date": "2021-02-10T04:40:25.112Z",
+      "id": 34
+    },
+    {
+      "dishId": 1,
+      "author": "Salman",
+      "rating": "4",
+      "comment": "Best pizza in town!!",
+      "date": "2021-02-10T05:47:02.262Z",
+      "id": 35
     }
   ],
   "feedbacks": [
